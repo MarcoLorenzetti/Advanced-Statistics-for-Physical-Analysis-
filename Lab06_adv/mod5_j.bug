@@ -1,0 +1,9 @@
+model {
+	lambda ~ dgamma(0.5, 0.00001);
+	
+	for(i in 1:length(X)) {
+		X[i] ~ dpois(lambda);
+	}
+	
+	y ~ dpois(lambda);
+}

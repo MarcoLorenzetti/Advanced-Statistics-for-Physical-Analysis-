@@ -1,0 +1,9 @@
+model {
+	p ~ dbeta(alpha.prior,beta.prior);
+	
+	for(i in 1:length(y)) {
+		y[i] ~ dbin(p,n);
+	}
+	
+	yy ~ dbin(p,n);
+}
